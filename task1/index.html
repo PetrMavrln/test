@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Что такое CSS?</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="container">
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#">Пункт меню</a>
+                    <ul class="nav-sub-menu">
+                        <li><a href="#">Пункт меню</a></li>
+                        <li class="sub-menu-anchor"><a href="#">Пункт меню</a>
+                            <ul class="nav-sub-menu-two">
+                                    <li><a href="#">Пункт меню</a></li>
+                                    <li><a href="#">Пункт меню</a></li>
+                                    <li><a href="#">Пункт меню</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Пункт меню</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Пункт меню</a></li>
+                <li><a href="#">Пункт меню</a></li>
+                <li><a href="#">Пункт меню</a></li>
+                <li><a href="#">Пункт меню</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <h1>Что такое CSS?</h1>
+
+        <section class="sect definition">
+            <p>
+                Cascading Style Sheets (CSS) — это язык иерархических правил (таблиц стилей 
+                (en-US)), используемый для представления внешнего вида документа, написанного 
+                на HTML или XML (en-US) (включая различные языки XML, такие как SVG (en-US) и 
+                XHTML). CSS описывает, каким образом элемент должен отображаться на экране, на 
+                бумаге, голосом или с использованием других медиа средств. Более подробно о CSS 
+                можно почитать <a href="https://developer.mozilla.org/ru/docs/Web/CSS" target="blank">здесь.</a>
+            </p>
+        </section>
+
+        <section class="sect connection">
+            <h2>Способы подключения CSS к документу</h2>
+            <p>
+                Правила CSS могут располагаться как в самом веб-документе, внешний вид которого 
+                они описывают, так и во внешних файлах, имеющих расширение .css. Формат CSS — 
+                это текстовый файл, в котором содержится перечень правил CSS и комментариев к 
+                ним.
+            </p>
+            <p>
+                Стили CSS могут быть подключены или внедрены в описываемый ими веб-документ 
+                четырьмя способами:
+            </p>
+            <ul>
+                <li>
+                    когда описание стилей находится в отдельном файле, оно может быть 
+                    подключено к документу посредством элемента <code>&lt;link&gt;</code>, 
+                    включённого в элемент <code>&lt;head&gt;</code>:
+                </li>
+            </ul>
+            <div class="code-ex">
+<pre>
+    <span class="span-yellow">&lt;!DOCTYPE html&gt;</span>
+        &lt;<span class="span-green">html</span>&gt;
+        &lt;<span class="span-green">head</span>&gt;
+            .....
+            &lt;<span class="span-green">link</span> <span class="span-lightgreen">rel=</span><span class="span-red">"stylesheet"</span> <span class="span-lightgreen">type=</span><span class="span-red">"text/css"</span> <span class="span-lightgreen">href=</span><span class="span-red">"style.css"</span>&gt;
+        &lt;<span class="span-green">/head</span>&gt;
+        &lt;<span class="span-green">body</span>&gt;
+            .....
+        &lt;<span class="span-green">/body</span>&gt;
+    &lt;<span class="span-green">/html</span>&gt;
+</pre>
+            </div>
+
+            <ul>
+                <li>
+                    когда файл стилей размещается отдельно от родительского документа, он может быть подключён к документу инструкцией <code>@import</code> в элементе<code>&lt;style&gt;</code>:
+                </li>
+            </ul>
+            <div class="code-ex">
+<pre>
+    <span class="span-yellow">&lt;!DOCTYPE html&gt;</span>
+    &lt;<span class="span-green">html</span>&gt;
+        &lt;<span class="span-green">head</span>&gt;
+          .....
+          &lt;<span class="span-green">style</span><span class="span-lightgreen">media=</span><span class="span-red">"all"</span>&gt;
+            <span class="span-green">@import url</span>(<span class="span-green">style</span>.<span class="span-blue">css</span>);
+            &lt;<span class="span-green">/style</span>&gt;
+        &lt;<span class="span-green">/head</span>&gt;
+    &lt;<span class="span-green">/html</span>&gt;
+</pre>
+            </div>
+
+            <ul>
+                <li>
+                    когда стили описаны внутри документа, они могут быть включены в элемент 
+                    <code>&lt;style&gt;</code>, который, включается в элемент <code> &lt;head&gt;</code>:
+                </li>
+            </ul>
+            <div class="code-ex">
+<pre>
+    <span class="span-yellow">&lt;!DOCTYPE html&gt;</span>
+    &lt;<span class="span-green">html</span>&gt;
+        &lt;<span class="span-green">head</span>&gt;
+            .....
+            &lt;<span class="span-green">style</span>&gt;
+                <span class="span-green">body</span> { 
+                    <span class="span-green">color: red</span>;
+                }
+            &lt;<span class="span-green">/style</span>&gt;
+        &lt;<span class="span-green">/head</span>&gt;
+        &lt;<span class="span-green">body</span>&gt;
+            .....
+        &lt;<span class="span-green">/body</span>&gt;
+    &lt;<span class="span-green">/html</span>&gt;
+</pre>
+            </div>
+            <ul>
+                <li>
+                    когда стили описаны в теле документа, они могут располагаться в атрибутах 
+                    отдельного элемента:
+                </li>
+            </ul>
+            <div class="code-ex">
+<pre>
+    <span class="span-yellow">&lt;!DOCTYPE html&gt;</span>
+    &lt;<span class="span-green">html</span>&gt;
+        &lt;<span class="span-green">head</span>&gt;
+            .....
+        &lt;<span class="span-green">/head</span>&gt;
+        &lt;<span class="span-green">body</span>&gt;
+            &lt;<span class="span-green">p</span> <span class="span-lightgreen">style=</span><span class="span-red">"font-size: 20px; color: green; font-family: arial, helvetica, sans-serif"</span>&gt;
+                .....
+            &lt;<span class="span-green">/p</span>&gt;
+        &lt;<span class="span-green">/body</span>&gt;
+    &lt;<span class="span-green">/html</span>&gt;
+</pre>
+            </div>
+            <p>В первых двух случаях к документу применены внешние стили, а во вторых — 
+                внутренние стили.</p>
+        </section>
+
+        <section class="sect rules">
+            <h2>Правила построения CSS</h2>
+            <p>
+                В первых трёх случаях подключения стилей CSS к документу (см. выше) каждое 
+                правило CSS из файла имеет две основные части — селектор и блок объявлений. 
+                Селектор, расположенный в левой части правила до знака «{», определяет, на 
+                какие части документа (возможно, специально обозначенные) распространяется 
+                правило. Блок объявлений располагается в правой части правила. Он помещается 
+                в фигурные скобки, и, в свою очередь, состоит из одного или более объявлений, 
+                разделённых знаком «;». Каждое объявление представляет собой сочетание 
+                свойства CSS и значения, разделённых знаком «:». Селекторы могут 
+                группироваться в одной строке через запятую. В таком случае свойство 
+                применяется к каждому из них.
+            </p>
+            <div class="code-ex">
+<pre>
+    <span class="span-green">селектор, селектор</span> {
+        свойство: значение;
+        свойство: значение;
+        свойство: значение;
+      }
+</pre>
+            </div>
+            <p>В четвёртом случае подключения CSS к документу (см. список) правило CSS, 
+                являющееся значением атрибута style элемента, к которому он применяется, 
+                представляет собой перечень объявлений («свойство CSS : значение»), 
+                разделённых знаком «;».</p>
+        </section>
+
+        <section class="sect selectors">
+            <h2>Виды селекторов</h2>
+            <h3>Универсальный селектор</h3>
+            <div class="code-ex">
+<pre>
+    * {
+        <span class="span-green">margin</span>: 0; 
+        <span class="span-green">padding</span>: 0; 
+    }
+</pre>
+            </div>
+
+            <h3>Селектор тегов</h3>
+            <div class="code-ex">
+<pre>
+    <span class="span-green">p</span> {
+        <span class="span-green">font-family</span>: arial, helvetica, <span class="span-green">sans-serif</span>; 
+    }
+</pre>
+            </div>
+
+            <h3>Селектор классов</h3>
+            <div class="code-ex">
+<pre>
+    .<span class="span-blue">note</span> {
+        <span class="span-green">color</span>: <span class="span-green">red</span>; 
+        <span class="span-green">background-color</span>: <span class="span-green">yellow</span>; 
+        <span class="span-green">font-weight</span>: <span class="span-green">bold</span>; 
+    }
+</pre>
+            </div>
+
+            <h3>Селектор идентификаторов</h3>
+            <div class="code-ex">
+<pre>
+    #<span class="span-blue">paragraph1</span> {
+        <span class="span-green">margin</span>: 0; 
+    }
+</pre>
+            </div>
+
+            <h3>Селектор атрибутов</h3>
+            <div class="code-ex">
+<pre>
+    <span class="span-green">a</span>[<span class="span-green">href=</span><span class="span-red">"http://www.somesite.com"</span>] {
+        <span class="span-green">font-weight</span>: <span class="span-green">bold</span>; 
+    }
+</pre>
+            </div>
+
+            <h3>Селектор потомков (контекстный селектор)</h3>
+            <div class="code-ex">
+<pre>
+    <span class="span-green">div</span>#<span class="span-blue">paragraph1</span> <span class="span-green">p</span>.<span class="span-blue">note</span> {
+        <span class="span-green">color</span>: <span class="span-green">green</span>; 
+    }
+</pre>
+            </div>
+
+            <h3>Селектор дочерних элементов</h3>
+            <div class="code-ex">
+<pre>
+    <span class="span-green">p</span>.<span class="span-blue">note</span> > <span class="span-green">b</span> {
+        <span class="span-green">color</span>: <span class="span-green">blue</span>; 
+    }
+</pre>
+            </div>
+
+            <h3>Селектор элементов одного уровня</h3>
+            <div class="code-ex">
+<pre>
+    <span class="span-green">h1</span> + <span class="span-green">p</span> {
+        <span class="span-green">font-size</span>:<span class="span-red">24px</span>; 
+    }
+</pre>
+            </div>
+
+            <h3>Селектор псевдоклассов</h3>
+            <div class="code-ex">
+<pre>
+    <span class="span-green">a</span>:<span class="span-purple">active</span> {
+        <span class="span-green">color</span>: <span class="span-green">blue</span>;
+    }
+</pre>
+            </div>
+
+            <h3>Селектор псевдоэлементов</h3>
+            <div class="code-ex">
+<pre>
+    <span class="span-green">p</span>::<span class="span-purple">first-letter</span> {
+        <span class="span-green">font-size</span>: <span class="span-red">32px</span>;
+    }
+</pre>
+            </div>
+        </section>
+
+        <section class="sect classes-and-ids">
+            <h2>Классы и идентификаторы элементов</h2>
+            <p>
+                Класс или идентификатор может быть присвоен какому-нибудь элементу HTML 
+                посредством атрибутов class или id этого элемента:
+            </p>
+            <div class="code-ex">
+<pre>
+    <span class="span-yellow">&lt;!DOCTYPE html&gt;</span>
+    &lt;<span class="span-green">html</span>&gt;
+        &lt;<span class="span-green">head</span>&gt;
+        &lt;<span class="span-green">meta</span> <span class="span-lightgreen">http-equiv=</span><span class="span-red">"Content-Type"</span> <span class="span-lightgreen">content=</span><span class="span-red">"text/html; charset=utf-8"</span>&gt;
+        &lt;<span class="span-green">title</span>&gt;
+            Селекторы классов и идентификаторов
+        &lt;<span class="span-green">/title</span>&gt;
+        &lt;<span class="span-green">style</span>&gt;
+            <span class="span-green">p</span>.<span class="span-blue">big</span> {
+                <span class="span-green">font-family</span>: arial, helvetica, <span class="span-green">sans-serif</span>;
+                <span class="span-green">color</span>: <span class="span-green">red</span>; 
+            }
+            
+            <span class="span-green">div</span>#<span class="span-blue">first</span> {
+                <span class="span-green">background-color</span>: <span class="span-green">silver</span>; 
+            }
+            &lt;<span class="span-green">/style</span>&gt;
+            &lt;<span class="span-green">/head</span>&gt;
+        &lt;<span class="span-green">body</span>&gt;
+            &lt;<span class="span-green">div</span> <span class="span-lightgreen">id=</span><span class="span-red">"first"</span>&gt;
+                &lt;!-- Это div c серым фоном, стилизованный по id --&gt;
+            &lt;<span class="span-green">/div</span>&gt;
+            &lt;<span class="span-green">p</span> <span class="span-lightgreen">class=</span><span class="span-red">"big"</span>&gt;
+                &lt;!-- Это текст красного цвета --&gt;
+            &lt;<span class="span-green">/p</span>&gt;
+        &lt;<span class="span-green">/body</span>&gt;
+    &lt;<span class="span-green">/html</span>&gt;
+</pre>
+            </div>
+            <p>
+                Основное различие между классами элементов и идентификаторами элементов 
+                в том, что идентификатор предназначен для одного элемента, тогда как 
+                класс обычно присваивают сразу нескольким. Тем не менее, современные 
+                браузеры, как правило, корректно отображают множественные элементы с 
+                одинаковым идентификатором. Также различие в том, что могут существовать 
+                множественные классы (когда класс элемента состоит из нескольких слов, 
+                разделённых пробелами). Для идентификаторов такое невозможно.
+            </p>
+            <p>
+                Важно отметить следующее отличие идентификатора от класса: идентификаторы 
+                широко используются в JavaScript для нахождения уникального элемента в 
+                документе. Имена классов и идентификаторов, в отличие от названий тегов и 
+                их атрибутов, чувствительны к регистру ввода букв. Свойства классов и 
+                идентификаторов задаются с помощью соответствующих селекторов. Причём 
+                может быть задано как свойство класса в целом (в таком случае селектор 
+                начинается с „.“, например, „.big“) или свойство идентификатора самого 
+                по себе (в таком случае селектор начинается с „#“, например, „#first“), 
+                так и свойство какого-нибудь элемента этого класса или с этим идентификатором. 
+                В CSS, помимо классов, задаваемых автором страницы, существует также 
+                ограниченный набор так называемых псевдоклассов, описывающих вид гиперссылок 
+                с определённым состоянием в документе, вид элемента, на котором находится 
+                фокус ввода, а также вид элементов, являющихся первыми дочерними элементами 
+                других элементов. Также в CSS существует четыре так называемых псевдоэлемента: 
+                первая буква, первая строка, применение специальных стилей до и после элемента.
+            </p>
+        </section>
+
+        <section class="sect Inheritance">
+            <h2>Наследование. Каскадирование. Приоритеты стилей CSS</h2>
+            <p>
+                Применение CSS к документам HTML основано на принципах наследования и 
+                каскадирования. Принцип наследования заключается в том, что свойства CSS, 
+                объявленные для элементов-предков, почти всегда наследуются 
+                элементами-потомками. Принцип каскадирования применяется в случае, 
+                когда какому-то элементу HTML одновременно поставлено в соответствие 
+                более одного правила CSS, то есть, когда происходит конфликт значений 
+                этих правил. Чтобы разрешить такие конфликты, вводятся правила приоритета.
+            </p>
+            <ul>
+                <li>Наиболее низким приоритетом обладает стиль браузера;</li>
+                <li>Следующим по значимости является стиль, заданный пользователем браузера в 
+                    его настройках;</li>
+                <li>
+                    И наиболее высоким приоритетом обладает стиль, заданный непосредственно 
+                    автором страницы. И далее, уже в этом авторском стиле приоритеты 
+                    расставляются следующим образом:
+                    <ul>
+                        <li>Самым низким приоритетом обладают стили, наследуемые в документе 
+                            элементом от своих предков;</li>
+                        <li>Более высоким приоритетом обладают стили, заданные во внешних 
+                            таблицах стилей, подключённых к документу;</li>
+                        <li>
+                            Ещё более высоким приоритетом обладают стили, заданные 
+                            непосредственно селекторами всех десяти видов (см. подраздел 
+                            "виды селекторов"), содержащимися в контейнерах style данного 
+                            документа. Нередки случаи, когда к какому-нибудь элементу имеют 
+                            отношение, задают его вид, несколько таких селекторов. Такие 
+                            конфликты между ними разрешаются с помощью расчёта специфичности 
+                            каждого такого селектора и применения этих селекторов к данному 
+                            элементу в порядке убывания их специфичностей. Расчёт специфичности 
+                            будет описан ниже.
+                            <ul>
+                                <li>
+                                    Специфичность селекторов делится на 4 группы — <code>a</code>, 
+                                    <code>b</code>, <code>c</code>, <code>d</code>
+                                    <ul>
+                                        <li>если стиль встроенный (определён как <code>style="..."</code>, 
+                                            то <code>а=1</code>, иначе <code>a=0</code>);</li>
+                                        <li>значение <code>b</code> равно количеству идентификаторов (иначе — <code>id=" "</code>, 
+                                            они начинаются с <code>#</code>) в селекторе;</li>
+                                        <li>значение <code>c</code> равно количеству классов (<code>class=" "
+                                        </code>, они начинаются с .), псевдоклассов (они 
+                                        начинаются с <code>:</code>, например <code>a:hover</code>) 
+                                        и селекторов атрибутов (/code>input[type="text"</code>);
+                                        </li>
+                                        <li>значение <code>d</code> равно количеству селекторов 
+                                            типов элементов (<code>h1 { color: blue; }</code>) 
+                                            и псевдокод-элементов (<code>p::first-line { color: 
+                                                blue; }</code>). После этого полученное 
+                                                значение приводится к числу (обычно в 
+                                                десятичной системе счисления). Селектор, 
+                                                обладающий большим значением специфичности, 
+                                                обладает и большим приоритетом.</li>
+                                    </ul>
+                                </li>
+                                <li>Таблица расчёта специфичности</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <table class="specificity-table">
+                <tr>
+                    <th>Селектор</th>
+                    <th>a, b, c, d</th>
+                    <th>Число</th>
+                </tr>
+                <tr>
+                    <td>span</td>
+                    <td>0, 0, 0, 1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>div .class</td>
+                    <td>0, 0, 1, 1</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>#id .class</td>
+                    <td>0, 1, 1, 0</td>
+                    <td>110</td>
+                </tr>
+                <tr>
+                    <td>div span</td>
+                    <td>0, 0, 0, 2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>class</td>
+                    <td>0, 0, 1, 0	</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>#id span</td>
+                    <td>0, 1, 0, 1</td>
+                    <td>101</td>
+                </tr>
+            </table>
+            <ul>
+                <li>
+                    Но, самым высоким приоритетом обладают стили, объявленные 
+                    автором страницы или пользователем, с помощью сопроводительного 
+                    правила!important. Если таких свойств несколько, то предпочтение 
+                    отдаётся в первую очередь стилям, заданным автором или пользователем, 
+                    а для остальных свойств, которые будут являться задаваемыми автором 
+                    страницы, потребуется определить их специфичности по принципам, 
+                    описанным выше, и применять эти свойства в порядке убывания этих 
+                    специфичностей.
+                </li>
+            </ul>
+        </section>
+
+        <section class="sect classes-and-ids">
+            <h2>Немного истории</h2>
+            <p>
+                CSS — одна из широкого спектра технологий, одобренных консорциумом W3C и 
+                получивших общее название «стандарты Web». В 1990-х годах стала ясна 
+                необходимость стандартизировать Web, создать какие-то единые правила, по 
+                которым программисты и веб-дизайнеры проектировали бы сайты. Так появились 
+                языки HTML 4.01 и XHTML, и стандарт CSS. В начале 1990-х различные браузеры 
+                имели свои стили для отображения веб-страниц. HTML развивался очень быстро и 
+                был способен удовлетворить все существовавшие на тот момент потребности по 
+                оформлению информации, поэтому CSS не получил тогда широкого признания. 
+                Термин «каскадные таблицы стилей» был предложен Хоконом Ли в 1994 году. 
+                Совместно с Бертом Босом он стал развивать CSS. В отличие от многих 
+                существовавших на тот момент языков стиля, CSS использует наследование 
+                от родителя к потомку, поэтому разработчик может определить разные 
+                стили, основываясь на уже определённых ранее стилях. В середине 1990-х 
+                Консорциум Всемирной паутины (W3C) стал проявлять интерес к CSS, и в 
+                декабре 1996 года была издана рекомендация CSS1.
+            </p>
+
+            <h3>CSS1</h3>
+            <p>Рекомендация W3C, принята 17 декабря 1996 года, откорректирована 11 
+                января 1999 года. Среди возможностей, предоставляемых этой рекомендацией:</p>
+            <ul>
+                <li>Параметры шрифтов. Возможности по заданию гарнитуры и размера 
+                    шрифта, а также его стиля — обычного, курсивного или полужирного.</li>
+                <li>Цвета. Спецификация позволяет определять цвета текста, фона, 
+                    рамок и других элементов страницы.</li>
+                <li>Атрибуты текста. Возможность задавать межсимвольный интервал, 
+                    расстояние между словами и высоту строки (то есть межстрочные отступы)</li>
+                <li>Выравнивание для текста, изображений, таблиц и других элементов.</li>
+                <li>Свойства блоков, такие как высота, ширина, внутренние (<code>padding</code>) 
+                    и внешние (<code>margin</code>) отступы и рамки. Также в спецификацию 
+                    входили ограниченные средства по позиционированию элементов, такие 
+                    как <code>float</code> и <code>clear</code>.</li>
+            </ul>
+
+            <h3>CSS2</h3>
+            <p>Рекомендация W3C, принята 12 мая 1998 года. Основана на CSS1 с сохранением 
+                обратной совместимости за несколькими исключениями. Добавление к функциональности:</p>
+            <ul>
+                <li>Блочная вёрстка. Появились относительное, абсолютное и фиксированное 
+                    позиционирование. Позволяет управлять размещением элементов по странице без 
+                    табличной вёрстки.</li>
+                <li>Типы носителей. Позволяет устанавливать разные стили для разных носителей 
+                    (например монитор, принтер, КПК).</li>
+                <li>Звуковые таблицы стилей. Определяет голос, громкость и т. д. для звуковых 
+                    носителей (например для слепых посетителей сайта).</li>
+                <li>Страничные носители. Позволяет, например, установить разные стили для 
+                    элементов на чётных и нечётных страницах при печати.</li>
+                <li>Расширенный механизм селекторов.</li>
+                <li>Указатели.</li>
+                <li>Генерируемое содержимое. Позволяет добавлять содержимое, 
+                    которого нет в исходном документе, до или после нужного элемента.</li>
+            </ul>
+            <p>В настоящее время W3C больше не поддерживает CSS2.</p>
+
+            <h3>CSS3</h3>
+            <p>CSS3 (англ. Cascading Style Sheets 3 — каскадные таблицы стилей третьего поколения) 
+                — активно разрабатываемая спецификация CSS. Представляет собой формальный язык, 
+                реализованный с помощью языка разметки. Самая масштабная редакция по сравнению с 
+                CSS1, CSS2 и CSS2.1. Главной особенностью CSS3 является возможность создавать 
+                анимированные элементы без использования JS, поддержка линейных и радиальных 
+                градиентов, теней, сглаживания и прочее. Преимущественно используется как средство 
+                описания и оформления внешнего вида веб-страниц, написанных с помощью языков 
+                разметки HTML и XHTML, но может также применяться к любым XML-документам, 
+                например, к SVG или XUL.</p>
+                <p>В отличие 
+                от предыдущих версий спецификация разбита на модули, разработка и развитие 
+                которых идёт независимо. CSS3 основан на CSS2.1, дополняет существующие свойства 
+                и значения и добавляет новые. Нововведения, начиная с малых, вроде закруглённых 
+                углов блоков, заканчивая трансформацией (анимацией) и, возможно, введением переменных</p>
+
+                <h3>CSS4</h3>
+                <p>Разрабатывается W3C с 29 сентября 2011 года. Модули CSS4 построены 
+                    на основе CSS3 и дополняют их новыми свойствами и значениями. Все 
+                    они существуют пока в виде черновиков (working draft).</p>
+                <figure class="fig">
+                    <img class="CSS-taxonomy" src="img/CSS-taxonomy.png" alt="CSS3 таксономия и статус:" width = "400" height = "400"/>
+                    <figcaption class="figcap">
+                        CSS3 таксономия и статус: <br>
+                        <span style="color:#83af40; font-size:180%;">●</span>
+                        Рекомендация <br>
+                        <span style="color:#8a8a3c; font-size:180%;">●</span>
+                        Кандидат в рекомендации <br>
+                        <span style="color:#c3642f; font-size:180%;">●</span>
+                        Последнее требование <br>
+                        <span style="color:#ed1e24; font-size:180%;">●</span>
+                        Рабочий проект
+                    </figcaption>
+                </figure>
+        </section>
+
+        <button class="scrollToTopBtn" title="To top">Вверх</button>
+    </main>
+
+    <footer class="container">
+        <div>
+            Выполнено для <a href="https://digdes.ru/" target="blank">Digital Design</a>
+        </div>
+        <div>
+            Источники: <a href="https://developer.mozilla.org/" target="blank">developer mozilla</a>; <a href="http://htmlbook.ru/" target="blank">htmlbook.ru</a>; <a href="https://html.spec.whatwg.org/" target="blank">whatwg</a> и др.
+        </div>
+    </footer>
+    <script src="js/scrollToTop.js"></script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+body {
+    min-width: 1440px;
+    font-family: "Inter", "Arial", sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23px;
+    background-color: #2c2b2b;
+    background-image: url("../img/naturalblack.png");
+}
+
+body,
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    padding: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.nav-menu a:hover {
+    background-color: rgba(173, 216, 230, 0.15);
+}
+
+.nav-menu li:first-child,
+.sub-menu-anchor {
+    position: relative;
+}
+
+.nav-sub-menu {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 35px;
+    list-style: none;
+    display: none;
+}
+
+.nav-sub-menu-two {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0%;
+    left: 110px;
+    list-style: none;
+    display: none;
+}
+
+.nav-sub-menu a {
+    font-size: 14px;
+    display: block;
+    padding: 5px 10px;
+}
+
+.nav-sub-menu-two a {
+    width: 95px;
+    font-size: 14px;
+    display: block;
+    padding: 5px 10px;
+}
+
+.nav-menu li:first-child:hover .nav-sub-menu {
+    display: block;
+}
+
+.sub-menu-anchor:hover .nav-sub-menu-two {
+    display: block;
+}
+
+main {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-size: 28px;
+    line-height: 24px;
+}
+
+.sect {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 40px;
+}
+
+main a {
+    text-decoration: none;
+    color: lightblue;
+}
+
+main a:visited {
+    color: grey;
+}
+
+main a:hover {
+    color: rgb(218, 230, 112);
+}
+
+main a:active {
+    color: rgb(255, 174, 0);
+    background-color: rgba(173, 216, 230, 0.15);
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.code-ex {
+    background-color: rgba(173, 216, 230, 0.15);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+}
+
+.specificity-table {
+    border-collapse: collapse;
+    margin-left: 150px;
+    background-color: rgba(173, 216, 230, 0.15);
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.fig {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.figcap {
+    text-align: left;
+}
+
+.CSS-taxonomy {
+    transition: 1s;
+    width: 400px;
+    height: 400px;
+}
+
+.CSS-taxonomy:hover {
+    transform: scale(1.5);
+}
+
+code {
+    padding: 0 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(173, 216, 230, 0.15);
+}
+
+.span-yellow {
+    color:rgb(218, 230, 112);
+}
+
+.span-green {
+    color:rgb(31, 201, 25);
+}
+
+.span-red {
+    color:rgb(221, 99, 110);
+}
+
+.span-lightgreen {
+    color:rgb(137, 219, 135);
+}
+
+.span-blue {
+    color:rgb(48, 108, 236);
+}
+
+.span-purple {
+    color:rgb(230, 48, 236);
+}
+
+.scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: 1px solid black;
+    background-color: rgba(173, 216, 230, 0.15);
+    color: white;
+    cursor: pointer;
+    padding: 5px 25px;
+}
+
+.scrollToTopBtnShow {
+    display: block;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: lightblue;
+}
+
+footer div {
+    padding: 20px 0;
+}
+
+footer div:first-child {
+    margin-right: 50px;
+}
+
+@media screen and (min-width: 768px) and (max-width:1439px) {
+    body {
+        min-width: 768px;
+    }
+    .container {
+        width: 700px;
+    }
+
+    .nav-menu a {
+        font-size: 16px;
+        padding: 20px 10px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .nav-sub-menu {
+        left: 20px;
+    }
+
+    .nav-sub-menu a {
+        font-size: 10px;
+        display: block;
+        padding: 5px 10px;
+        z-index: 10;
+        color: black;
+        background-color: rgba(173, 216, 230, 1);
+    }
+
+    main {
+        padding-top: 40px;
+    }
+
+    .nav-sub-menu a:hover {
+        background-color: rgb(213, 245, 69);
+    }
+
+    .nav-sub-menu-two {
+        left: 85px;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        padding: 0 10px;
+    }
+
+    .figcap {
+        margin-top: 85px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width:767px) {
+    body {
+        min-width: 375px;
+    }
+    .container {
+        width: 365px;
+    }
+
+    .nav-menu a {
+        font-size: 16px;
+        padding: 20px 10px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .nav-sub-menu {
+        left: -8px;
+    }
+
+    .nav-sub-menu a {
+        width: 70px;
+        font-size: 10px;
+        display: block;
+        padding: 5px 10px;
+        z-index: 10;
+        color: black;
+        background-color: rgba(173, 216, 230, 1);
+    }
+
+    main {
+        padding-top: 40px;
+    }
+
+    .nav-sub-menu a:hover {
+        background-color: rgb(213, 245, 69);
+    }
+
+    .nav-sub-menu-two {
+        left: 90px;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    .specificity-table {
+        margin-left: 50px;
+    }
+
+    .fig {
+        margin-top: 25px;
+        margin-left: -40px;
+    }
+
+    .figcap {
+        margin-top: 25px;
+        margin-left: 80px;
+    }
+    
+    .CSS-taxonomy {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .CSS-taxonomy:hover {
+        transform: scale(1);
+    }
+}
