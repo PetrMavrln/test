@@ -9,20 +9,19 @@ function getWeek(someDate) {
 
 }
 
-function getDay(data) {
+function getMonth(m) {
 
-  let d = data.getDay();
-  if (d == 0) {
-    d = 7;
+  if (!m) return m;
+
+    m = m[0].toUpperCase() + m.slice(1);
+
+  if (m === "Март" || m === "Август") {
+    m = m + "а";
+  } else {
+    m = m.slice(0, m.length-1) + "я";
   }
 
-  return d;
-}
-
-function getMonth(m) {
-    if (!m) return m;
-
-  return m[0].toUpperCase() + m.slice(1);
+  return m;
 }
 
 function getDayInfo(date) {
@@ -31,15 +30,13 @@ function getDayInfo(date) {
 
   const newDate = new Date(date);
   let year = newDate.getFullYear();
-  let month = newDate.toLocaleString('default', { month: 'short' });
+  let month = newDate.toLocaleString('default', { month: "long" });
   month = getMonth(month);
   let week = getWeek(newDate);
-  let day = getDay(newDate);
+  let day = newDate.getDay();
   let result = (`${daysOfWeek[day]}, ${week} неделя ${month} ${year} года`);
-
-  alert(result);
 
   return result
 }
 
-getDayInfo('3.26.2022');
+getDayInfo('1.31.2022');
